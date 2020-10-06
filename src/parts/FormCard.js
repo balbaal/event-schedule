@@ -17,7 +17,7 @@ const FormCard = () => {
 
   return (
     <div className="form-card">
-      <h2 className="form-card__title">Add Event</h2>
+      <h2 className="form-card__title mb-3">Add Event</h2>
 
       <div className="row">
         <div className="col-sm-6">
@@ -96,7 +96,7 @@ const FormCard = () => {
       <div className="form-group">
         <Button
           title="Add Event"
-          className="btn-primary btn-md float-right"
+          className="btn-light btn-md float-right"
           onClick={__handleSubmit}
         />
       </div>
