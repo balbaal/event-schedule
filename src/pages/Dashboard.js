@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { axios } from "configs";
 import { Input } from "elements";
 import { Table } from "parts";
@@ -14,7 +14,7 @@ const Dashboard = () => {
     setEvents(resData.data);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchData();
   }, [events]);
 
