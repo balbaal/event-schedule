@@ -14,7 +14,31 @@ const FormCard = () => {
   const [note, setNote] = useState("");
   const [picture, setPicture] = useState("");
 
+  const validationForm = () => {
+    if (
+      title !== "" &&
+      location !== "" &&
+      participant !== "" &&
+      date !== "" &&
+      note !== "" &&
+      picture !== ""
+    )
+      return;
+
+    toast.warning("Field can't be empty", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   const __handleSubmit = async (e) => {
+    validationForm();
+
     const payload = new FormData();
 
     payload.append("title", title);
@@ -48,7 +72,15 @@ const FormCard = () => {
       setNote("");
       setPicture("");
     } catch (error) {
-      console.log("error :>> ", error);
+      toast.warning(error.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
