@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import './assets/styles/custom.sass'
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // Routing
