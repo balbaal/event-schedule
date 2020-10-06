@@ -24,19 +24,32 @@ const FormCard = () => {
     payload.append("note", note);
     payload.append("picture", picture[0]);
 
-    await axios.post("/event", payload, {
-      headers: { contentType: "multipart/form-data" },
-    });
+    try {
+      await axios.post("/event", payload, {
+        headers: { contentType: "multipart/form-data" },
+      });
 
-    toast.success(`Event Created ${title}`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+      // notification after submit
+      toast.success(`Event Created ${title}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
+      // reset form
+      setTitle("");
+      setLocation("");
+      setParticipant("");
+      setDate("");
+      setNote("");
+      setPicture("");
+    } catch (error) {
+      console.log("error :>> ", error);
+    }
   };
 
   return (
