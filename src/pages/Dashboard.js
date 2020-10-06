@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { axios } from "configs";
 import { Input } from "elements";
 import { Table } from "parts";
@@ -14,9 +14,9 @@ const Dashboard = () => {
     setEvents(resData.data);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     fetchData();
-  }, [events]);
+  }, []);
 
   const data = {
     columns: [
@@ -53,6 +53,8 @@ const Dashboard = () => {
     ],
     rows: events,
   };
+
+  console.log("data :>> ", data);
 
   return (
     <div>
