@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { axios } from "configs";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Component
 import { Input, Button } from "elements";
@@ -22,8 +24,18 @@ const FormCard = () => {
     payload.append("note", note);
     payload.append("picture", picture[0]);
 
-    const resEvent = await axios.post("/event", payload, {
+    await axios.post("/event", payload, {
       headers: { contentType: "multipart/form-data" },
+    });
+
+    toast.success(`Event Created ${title}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
     });
   };
 
