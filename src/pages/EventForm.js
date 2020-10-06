@@ -10,7 +10,7 @@ const EventForm = () => {
       <Navbar />
 
       <div className="container">
-        <div className="row">
+        <div className="row mt-5">
           <div className="col-sm-6">
             <FormCard />
           </div>
