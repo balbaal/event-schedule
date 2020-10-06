@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { axios } from "configs";
-import { useTable } from "react-table";
 import { Input } from "elements";
 import { Table } from "parts";
 
@@ -9,7 +8,6 @@ import { Navbar } from "parts";
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
-  const [filter, setFilter] = useState("");
 
   const fetchData = async () => {
     const resData = await axios.get("/event");
@@ -20,60 +18,48 @@ const Dashboard = () => {
     fetchData();
   }, [events]);
 
-  const data = useMemo(() => events, [events]);
-
-  const columns = useMemo(
-    () => [
+  const data = {
+    columns: [
       {
-        Header: "Title",
-        accessor: "date", // accessor is the "key" in the data
+        label: "Title",
+        field: "title",
+        sort: "asc",
+        width: 150,
       },
       {
-        Header: "Participant",
-        accessor: "participant",
+        label: "Participant",
+        field: "participant",
+        sort: "asc",
+        width: 150,
       },
       {
-        Header: "Note",
-        accessor: "note",
+        label: "Note",
+        field: "note",
+        sort: "asc",
+        width: 150,
       },
       {
-        Header: "Location",
-        accessor: "location",
+        label: "Location",
+        field: "location",
+        sort: "asc",
+        width: 150,
+      },
+      {
+        label: "Date",
+        field: "date",
+        sort: "asc",
+        width: 150,
       },
     ],
-    []
-  );
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({ columns, data });
+    rows: events,
+  };
 
   return (
     <div>
       <Navbar />
 
       <div className="container mt-3">
-        <Input
-          type="text"
-          name="filter"
-          placeholder="Search . . ."
-          value={filter}
-          onChange={(e) => {
-            setFilter(e.target.value);
-          }}
-          className="w-50"
-        />
-        <Table
-          getTableProps={getTableProps}
-          getTableBodyProps={getTableBodyProps}
-          headerGroups={headerGroups}
-          rows={rows}
-          prepareRow={prepareRow}
-        />
+        <Table data={data} />
       </div>
     </div>
   );
