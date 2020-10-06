@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
 import FormCard from "./FormCard";
+import EventCard from "./EventCard";
 
-export { Navbar, FormCard };
+export { Navbar, FormCard, EventCard };
