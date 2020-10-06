@@ -20,9 +20,13 @@ const Home = () => {
       <Navbar />
 
       <div className="container">
-        {data.map((item, i) => (
-          <EventCard key={i} data={item} />
-        ))}
+        <div className="row mt-3">
+          {data.map((item, i) => (
+            <div className="col-md-3 col-sm-12">
+              <EventCard key={i} data={item} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
