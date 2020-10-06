@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { axios } from "configs";
 
 // Component
 import { Input, Button } from "elements";
@@ -11,17 +12,19 @@ const FormCard = () => {
   const [note, setNote] = useState("");
   const [picture, setPicture] = useState("");
 
-  const __handleSubmit = () => {
-    const payload = {
-      title,
-      location,
-      participant,
-      date,
-      note,
-      picture,
-    };
+  const __handleSubmit = async (e) => {
+    const payload = new FormData();
 
-    console.log("payload :>> ", payload);
+    payload.append("title", title);
+    payload.append("location", location);
+    payload.append("participant", participant);
+    payload.append("date", date);
+    payload.append("note", note);
+    payload.append("picture", picture[0]);
+
+    const resEvent = await axios.post("/event", payload, {
+      headers: { contentType: "multipart/form-data" },
+    });
   };
 
   return (
@@ -95,8 +98,7 @@ const FormCard = () => {
               type="file"
               name="picture"
               placeholder="Picture . . ."
-              value={picture}
-              onChange={(e) => setPicture(e.target.value)}
+              onChange={(e) => setPicture(e.target.files)}
             />
           </div>
         </div>

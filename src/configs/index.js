@@ -1,3 +1,4 @@
 import Routing from "./Routing";
+import axios from "./axios";
 
-export { Routing };
+export { Routing, axios };
