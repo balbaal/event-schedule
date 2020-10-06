@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Component
-import { Input } from "elements";
+import { Input, Button } from "elements";
 
 const FormCard = () => {
   const [title, setTitle] = useState("");
@@ -10,6 +10,10 @@ const FormCard = () => {
   const [date, setDate] = useState("");
   const [note, setNote] = useState("");
   const [picture, setPicture] = useState("");
+
+  const __handleSubmit = () => {
+    console.log("title :>> ", title);
+  };
 
   return (
     <div className="form-card">
@@ -87,6 +91,14 @@ const FormCard = () => {
             />
           </div>
         </div>
+      </div>
+
+      <div className="form-group">
+        <Button
+          title="Add Event"
+          className="btn-primary btn-md float-right"
+          onClick={__handleSubmit}
+        />
       </div>
     </div>
   );
