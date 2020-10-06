@@ -5,7 +5,7 @@ const Input = (props) => {
     <input
       type={props.type}
       name={props.name}
-      className={["form-control"]}
+      className={["form-control", props.className].join(" ")}
       placeholder={props.placeholder}
       value={props.value}
       onChange={props.onChange}

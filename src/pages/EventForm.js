@@ -1,12 +1,22 @@
 import React from "react";
 
+// Components
 import { Navbar } from "parts";
+import { FormCard } from "parts";
 
 const EventForm = () => {
   return (
     <div>
       <Navbar />
-      EventForm page
+
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6">
+            <FormCard />
+          </div>
+          <div className="col-sm-6">image</div>
+        </div>
+      </div>
     </div>
   );
 };
