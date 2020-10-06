@@ -1,2 +1,50 @@
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss'
+
+.navbar-header
+  background-color: $blue
+  width: 100%
+  color: white
+  padding: 10px 0
+
+  &__wrap
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+    &__home
+      cursor: pointer
+      font-weight: bold
+      font-size: 24px
+      color: white
+      margin: 0
+      padding: 0
+
+      &:hover
+        text-decoration: none
+        color: white
+
+    &__menu
+      padding: 0
+      margin: 0
+      display: flex
+      flex-direction: row
+      align-items: center
+      justify-content: flex-end
+      list-style-type: none
+
+      &__item
+        margin: 0
+        padding: 0
+        margin: 0 15px
+        font-size: 18px
+
+        &:last-child
+          margin-right: 0px
+
+        a
+          color: white
+          &:hover
+            text-decoration: none
+            color: white
