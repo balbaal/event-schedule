@@ -16,28 +16,29 @@ const FormCard = () => {
 
   const validationForm = () => {
     if (
-      title !== "" &&
-      location !== "" &&
-      participant !== "" &&
-      date !== "" &&
-      note !== "" &&
-      picture !== ""
-    )
-      return;
+      title === "" ||
+      location === "" ||
+      participant === "" ||
+      date === "" ||
+      note === "" ||
+      picture === ""
+    ) {
+      toast.warning("Field can't be empty", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
-    toast.warning("Field can't be empty", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+      return true;
+    }
   };
 
   const __handleSubmit = async (e) => {
-    validationForm();
+    if (validationForm()) return;
 
     const payload = new FormData();
 
