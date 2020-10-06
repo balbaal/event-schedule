@@ -54,8 +54,6 @@ const Dashboard = () => {
     rows: events,
   };
 
-  console.log("data :>> ", data);
-
   return (
     <div>
       <Navbar />
