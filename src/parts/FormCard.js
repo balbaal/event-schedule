@@ -12,7 +12,16 @@ const FormCard = () => {
   const [picture, setPicture] = useState("");
 
   const __handleSubmit = () => {
-    console.log("title :>> ", title);
+    const payload = {
+      title,
+      location,
+      participant,
+      date,
+      note,
+      picture,
+    };
+
+    console.log("payload :>> ", payload);
   };
 
   return (
