@@ -1,0 +1,134 @@
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss'
+
+.navbar-header
+  background-color: $blue
+  width: 100%
+  color: white
+  padding: 10px 0
+
+  &__wrap
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+    &__home
+      cursor: pointer
+      font-weight: bold
+      font-size: 24px
+      color: white
+      margin: 0
+      padding: 0
+
+      &:hover
+        text-decoration: none
+        color: white
+
+    &__menu
+      padding: 0
+      margin: 0
+      display: flex
+      flex-direction: row
+      align-items: center
+      justify-content: flex-end
+      list-style-type: none
+
+      &__item
+        margin: 0
+        padding: 0
+        margin: 0 15px
+        font-size: 18px
+
+        &:last-child
+          margin-right: 0px
+
+        a
+          color: white
+          &:hover
+            text-decoration: none
+            color: white
+.event-form
+  border-top-left-radius: 10px
+  border-bottom-left-radius: 10px
+
+.form-card
+  &__title
+    font-weight: bold
+    font-size: 22px
+    color: white
+    margin: 0
+
+.hero-form
+  padding-left: 0px
+
+  img
+    object-fit: cover
+    border-top-right-radius: 10px
+    border-bottom-right-radius: 10px
+
+.event-card
+  border-radius: 10px
+
+  &__figure
+    margin: 0
+    height: 150px
+
+    &__img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      border-top-right-radius: 10px
+      border-top-left-radius: 10px
+
+  &__content
+    padding: 10px
+    padding-bottom: 0px
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+
+    &__header
+      h2
+        margin: 0
+        font-size: 14px
+        text-transform: uppercase
+
+      h3
+        margin: 0
+        font-size: 24px
+        font-weight: normal
+        text-transform: capitalize
+
+      h4
+        margin: 0
+        font-size: 12px
+        font-weight: normal
+        text-transform: capitalize
+        color: gray
+
+    &__participant
+      padding: 5px 0
+      border-top: 1px solid #efefef
+      border-bottom: 1px solid #efefef
+      margin-left: -10px
+      margin-right: -10px
+
+      p
+        margin: 0
+        margin-left: 10px
+        margin-right: 10px
+        font-size: 12px
+        font-weight: normal
+        text-transform: capitalize
+        color: gray
+
+    &__note
+      background-color: #e0fcff
+      padding: 10px
+      margin: 0 -10px
+
+      p
+        font-size: 11px
+        color: gray
+        text-transform: capitalize
+        margin: 0
